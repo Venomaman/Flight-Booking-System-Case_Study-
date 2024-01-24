@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand " style="background-color:  #20456c !important;">
+
+            <a href="/home" class="navbar-brand">
+
+                <div class="icon">
+                    <img src="../assets/36e82ef9-193b-4a92-b13e-637295421ac5.jpg" alt="image" />FlightBuzz
+                </div>
+            </a>
+            <ul class="navbar-nav mr-auto" routerLinkActive="active">
+                <li class="nav-item">
+                    <a href="/home" class="nav-link" routerLink="home">Home </a>
+                </li>
+
+                <li class="nav-item " *ngIf="showAdminBoard ">
+                    <a href="/admin" class="nav-link " routerLink="admin">Admin Board</a>
+                </li>
+                <li class="nav-item " *ngIf="showAttendeeBoard ">
+                    <a href="/attendee" class="nav-link " routerLink="attendee">Attendee Board</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="/cancelBooking " class="nav-link " *ngIf="isLoggedIn" routerLink="cancelBooking">Cancel-Booking</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto " *ngIf="!isLoggedIn ">
+                <li class="nav-item ">
+                    <a href="/register" class="nav-link " routerLink="register">Sign Up</a>
+                </li>
+                <li class="nav-item ">
+                    <a href="/login" class="nav-link " routerLink="login">Login</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto " *ngIf="isLoggedIn ">
+                <li class="nav-item ">
+                    <a href="/profile" class="nav-link " routerLink="profile">{{ username }}</a>
+                </li>
+                <li class="nav-item ">
+                    <a href class="nav-link " (click)="logout() ">LogOut</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="container ">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<router-outlet>
+
+</router-outlet>
